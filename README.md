@@ -109,3 +109,21 @@ Column(
       .toList(),
 ),
 ```
+
+- 使用 `for` 循環重複對一個項目進行處理，以本例來說，通過 `for` 循環遍歷用戶所選的答案，最後匯出一個新的`map` 用來輸出結果
+
+```dart
+List<Map<String, Object>> get _summaryData {
+  final List<Map<String, Object>> summary = [];
+
+  for (var i = 0; i < selectedAnswers.length; i++) { // 遍歷用戶所選的答案
+    summary.add({ // 通過 add 方法往 summary 中新增物件
+      'index': i,
+      'question': questions[i].text,
+      'answer': questions[i].answers[0],
+      'selectedAnswer': selectedAnswers[i]
+    });
+  }
+  return summary; // 匯出 summay
+}
+```
